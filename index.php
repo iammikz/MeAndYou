@@ -1,4 +1,4 @@
-<?php session_start(); $_SESSION['GrpTtl']=8; ?>
+<?php session_start(); $_SESSION['GrpTtl']=1; ?>
 <style type="text/css">
     .slideimage{
         position: absolute;
@@ -162,7 +162,7 @@
 <?php
 //This function gets the file names of all images in the current directory
 //and ouputs them as a JavaScript array
-function returnimages($dirname="./hon") {
+function returnimages($dirname="./sampleimg") {
     $pattern="/^.*\.(jpg|png|jpeg|gif)$/i"; //valid image extensions
     $files = array();
     $curimage=0;
