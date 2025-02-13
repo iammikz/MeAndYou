@@ -73,8 +73,10 @@
 
 <script type="text/javascript">
     let isFrameOpen = false;
+    let GrpTtl = 1;
 
     $(document).ready(function() {
+        getImages();
 
         timer=setInterval(function () {
             if($('#visas_style_div').length>0){
@@ -99,8 +101,6 @@
         return speed;
     }
 
-
-
 	function moveit_rand(tempval,toggleval) {
         var wh=window.innerHeight-400;
         var ww=window.innerWidth-400;
@@ -109,7 +109,8 @@
         var newDuration=calcSpeed([tempval.offset()?.left,tempval.offset()?.top],[newLeft,newTop]);
 	    var zindex=Math.floor(Math.random()*50);
         var gindex=parseInt($(tempval).attr('grp'));
-        var grpshow=(gindex>=<?php echo $_SESSION['GrpTtl'] ?> ? 1 : (gindex+1));
+        // var grpshow=(gindex>=<?php echo $_SESSION['GrpTtl'] ?> ? 1 : (gindex+1));
+        var grpshow=(gindex>=GrpTtl ? 1 : (gindex+1));
         var tempid=$(tempval).attr('id');
 	    tempval.css('zIndex',zindex);
 	    tempval.animate({
@@ -147,21 +148,35 @@
     }
 
     function getImages(){
-        const testFolder = './tests/';
-        const fs = require('fs');
-
-        fs.readdir(testFolder, (err, files) => {
-        files.forEach(file => {
-            console.log(file);
-        });
-        });
+        console.log('Getting Images');
+        const imageList = ["Dissidia Final Fantasy 1.jpg","dissidia-final-fantasy.jpg","Dissidia.full.1333962.jpg","Dissidia.full.462663.jpg"];
+        const dirname = './sampleimg/';
+        let curimage = 0;
+        
+        for (let x = 1; x <= GrpTtl; x++) {
+            console.log(imageList);
+            imageList.forEach(file => {
+                console.log(file);
+                let initialy = getRndInteger(1,500);
+                let initialx = getRndInteger(1,1000);
+                $('#rndThumbs').append(
+                    '<img src="'+dirname+'/'+file+'" style="display:none;top:'+initialy+'px;left:'+initialx+'px;" class="slideimage" onclick="_moveup(this);" id="img_'+curimage+'" grp="'+x+'"/>'
+                );
+                curimage++;
+            });
+        }
     }
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) ) + min;
+    }
+
 </script>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Happy Valentines Honey</title>
+	<title>MoveIt</title>
 </head>
 <body>
 <div id="showimage" class="imageviewer" style="display:none;" onclick="_closewnd('viewer');">
@@ -171,7 +186,7 @@
     <img id="largeimg" src="">
 </div>
 <div id="rndThumbs">
-    <!-- // images -->
+    
 </div>
 </body>
 </html>
