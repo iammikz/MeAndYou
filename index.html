@@ -74,8 +74,21 @@
     }
     
     #soundButton{
+        background: url(public/music_on.png) no-repeat center center; 
         width: 50px;
         height: 50px;
+    }
+
+    .tangerine-regular {
+        font-family: "Tangerine", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .tangerine-bold {
+        font-family: "Tangerine", serif;
+        font-weight: 700;
+        font-style: normal;
     }
 </style>
 
@@ -175,7 +188,7 @@
 
     function getImages(){
         console.log('Getting Images');
-        const imageList = ["Dissidia Final Fantasy 1.jpg","dissidia-final-fantasy.jpg","Dissidia.full.1333962.jpg","Dissidia.full.462663.jpg"];
+        const imageList = [ "2015-01-03 21.24.31.jpg", "IMG_20141206_052802.jpg", "IMG_20141226_184553.jpg", "IMG_20141226_184642.jpg", "IMG_20150314_103034.jpg", "IMG_20150314_104248.jpg", "IMG_20150314_104635.jpg", "IMG_20150314_105221.jpg", "IMG_20150314_105703_3CS.jpg", "IMG_20150314_122306.jpg", "IMG_20150314_173831.jpg", "IMG_20150314_215004.jpg", "IMG_20150314_215015.jpg", "IMG_20150419_120435.jpg", "IMG_20150419_120441.jpg", "IMG_20150419_120458.jpg", "IMG_20150419_161002.jpg", "IMG_20150419_161214.jpg", "IMG_20150419_162423.jpg", "IMG_20150419_162436.jpg", "IMG_20150419_165642.jpg", "IMG_20150419_165715.jpg", "IMG_20150419_170038.jpg", "IMG_20150419_170052.jpg", "IMG_20150419_170758.jpg", "IMG_20150419_173520.jpg", "IMG_20150419_173536.jpg", "IMG_20150419_173552.jpg", "IMG_20150419_173602.jpg", "IMG_20150516_115144.jpg", "IMG_20150516_115257.jpg", "IMG_20150516_115512.jpg", "IMG_20150516_115816.jpg", "IMG_20150516_132250.jpg", "IMG_20150516_132341.jpg", "IMG_20150617_163954.jpg", "IMG_20150617_164044.jpg", "IMG_20150617_164454.jpg", "IMG_20150617_165206.jpg", "IMG_20150617_165318.jpg", "IMG_20150622_100502.jpg", "IMG_555329729469066.jpeg", "IMG_555338036426989.jpeg", "IMG_7778.JPG", "IMG_7959.JPG", "IMG_7970.JPG" ];
         const dirname = './sampleimg/';
         let curimage = 0;
         
@@ -208,13 +221,21 @@
 <html>
 <head>
 	<title>MoveIt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<audio id="musicV">
-    <source src="public/thinking_out_loud.mp3" type="audio/mpeg">
+<audio id="musicV" loop>
+    <source src="public/tangerine.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 <div id="soundButton" href="javascript:void(0);" onclick="toggleMute()"></div>
+<div id="message">
+    <p>
+        You are my sunshine on the darkest days and my comfort in every storm. I love you endlessly. <span>Happy Valentine's Day!</span>
+    </p>
+</div>
 <div id="showimage" class="imageviewer" style="display:none;" onclick="_closewnd('viewer');">
     <div id="wnd">
         
