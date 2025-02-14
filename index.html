@@ -68,6 +68,11 @@
         -o-filter: blur(5px);
         filter: blur(5px);
     }
+    
+    #soundButton{
+        width: 50px;
+        height: 50px;
+    }
 </style>
 
 <script src="jquery1.11.3.js"></script>
@@ -91,6 +96,8 @@
         for($x=0;$x<=grpindex;$x++){
             moveit_rand($('#img_'+$x+'[grp="1"]'),0);
         }
+
+        $("#musicV").play();
 	});
 
     function calcSpeed(prev, next) {
@@ -185,11 +192,11 @@
 	<title>MoveIt</title>
 </head>
 <body>
-<audio id="musicV" controls autoplay>
+<audio id="musicV">
     <source src="public/thinking_out_loud.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
-<div id="soundButton" href="javascript:void(0);" onclick="toggleMute()">Mute/Unmute</div>
+<div id="soundButton" href="javascript:void(0);" onclick="toggleMute()"></div>
 <div id="showimage" class="imageviewer" style="display:none;" onclick="_closewnd('viewer');">
     <div id="wnd">
         
