@@ -87,6 +87,7 @@
 <script type="text/javascript">
     let isFrameOpen = false;
     let GrpTtl = 1;
+    let waitFirstInteraction = true;
 
     $(document).ready(function() {
         getImages();
@@ -104,8 +105,15 @@
             moveit_rand($('#img_'+$x+'[grp="1"]'),0);
         }
 
-        document.getElementById('musicV').play();
+        setInterval(function() {
+            if (document.getElementById('musicV').paused && waitFirstInteraction) {
+                document.getElementById('musicV').play();
+                waitFirstInteraction=false;
+            }
+        }, 1000);
 	});
+
+    
 
     function calcSpeed(prev, next) {
         var x = Math.abs(prev[0] - next[0]);
