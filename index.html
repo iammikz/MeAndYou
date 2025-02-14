@@ -204,7 +204,7 @@
                     let initialy = getRndInteger(1,500);
                     let initialx = getRndInteger(1,1000);
                     $('#rndThumbs').append(
-                        '<img src="'+dirname+'/'+file+'" style="display:none;top:'+initialy+'px;left:'+initialx+'px;" class="slideimage" onclick="_moveup(this);" id="img_'+x+'_'+curimage+'" grp="'+x+'"/>'
+                        '<img src="'+dirname+'/'+file+'" style="display:none;top:'+initialy+'px;left:'+initialx+'px;" class="slideimage" onclick="_moveup(this);" id="img_'+x+'" grp="'+x+'"/>'
                     );
                     curimage++;
                     imageList = imageList.filter(image => image !== file);
