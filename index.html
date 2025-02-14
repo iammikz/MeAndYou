@@ -195,13 +195,18 @@
         for (let x = 1; x <= GrpTtl; x++) {
             console.log(imageList);
             imageList.forEach(file => {
+                if (curimage>=GrpTtl) {
+                    throw new Error("stop");
+                    ;
+                }
                 console.log(file);
                 let initialy = getRndInteger(1,500);
                 let initialx = getRndInteger(1,1000);
                 $('#rndThumbs').append(
-                    '<img src="'+dirname+'/'+file+'" style="display:none;top:'+initialy+'px;left:'+initialx+'px;" class="slideimage" onclick="_moveup(this);" id="img_'+curimage+'" grp="'+x+'"/>'
+                    '<img src="'+dirname+'/'+file+'" style="display:none;top:'+initialy+'px;left:'+initialx+'px;" class="slideimage" onclick="_moveup(this);" id="img_'+x+'_'+curimage+'" grp="'+x+'"/>'
                 );
                 curimage++;
+                imageList = imageList.filter(image => image !== file);
             });
         }
     }
@@ -220,7 +225,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MoveIt</title>
+	<title>Happy Valentines Honey</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
