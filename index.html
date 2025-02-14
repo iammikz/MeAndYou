@@ -108,6 +108,9 @@
         setInterval(function() {
             if (document.getElementById('musicV').paused && waitFirstInteraction) {
                 document.getElementById('musicV').play();
+            }
+            if (!document.getElementById('musicV').paused)
+            {
                 waitFirstInteraction=false;
             }
         }, 1000);
