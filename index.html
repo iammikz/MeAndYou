@@ -175,7 +175,7 @@
     function toggleMute() {
         var myAudio = document.getElementById('musicV');
         myAudio.muted = !myAudio.muted;
-        document.getElementById('soundButton').style.backgroundImage="url(public/music_"+(!myAudio.muted ?"on" :"off" )+".jpg)";
+        document.getElementById('soundButton').style.backgroundImage="url(public/music_"+(!myAudio.muted ?"on" :"off" )+".png)";
     }
 </script>
 
@@ -185,7 +185,7 @@
 	<title>MoveIt</title>
 </head>
 <body>
-<audio id="musicV" autoplay>
+<audio id="musicV" controls autoplay>
     <source src="public/thinking_out_loud.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
